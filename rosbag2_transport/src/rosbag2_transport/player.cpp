@@ -397,7 +397,7 @@ bool Player::play_next()
 
   bool next_message_published = false;
   while (message_ptr != nullptr && !next_message_published && !stop_playback_) {
-    if (play_until_time_ >= starting_time_ && message_ptr->time_stamp > play_until_time_) {
+    if (play_until_time_ >= starting_time_ && message_ptr->time_stamp >= play_until_time_) {
       break;
     }
     {
@@ -561,7 +561,7 @@ void Player::play_messages_from_queue()
     ready_to_play_from_queue_cv_.notify_all();
   }
   while (message_ptr != nullptr && rclcpp::ok() && !stop_playback_) {
-    if (play_until_time_ >= starting_time_ && message_ptr->time_stamp > play_until_time_) {
+    if (play_until_time_ >= starting_time_ && message_ptr->time_stamp >= play_until_time_) {
       break;
     }
     // Do not move on until sleep_until returns true

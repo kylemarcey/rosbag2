@@ -50,8 +50,9 @@ public:
   // Sleep before play. Negative durations invalid. Will delay at the beginning of each loop.
   rclcpp::Duration delay = rclcpp::Duration(0, 0);
 
-  // Determines the maximum duration of the playback. Negative durations will make the playback to
-  // not stop. Default configuration makes the player to not stop execution.
+  // Determines the maximum duration for the playback. Playback duration has non-inclusive
+  // boundary. Zero duration will make player to not play any messages. Negative durations will
+  // make the playback to not stop. Default configuration makes the player to not stop execution.
   rclcpp::Duration playback_duration = rclcpp::Duration(-1, 0);
 
   // Start paused.
