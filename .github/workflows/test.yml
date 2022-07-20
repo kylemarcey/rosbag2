@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master
-  schedule:
+  # schedule:
     # Run every hour. This helps detect flakiness,
     # and broken external dependencies.
     # - cron:  '0 * * * *'
